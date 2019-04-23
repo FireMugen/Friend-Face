@@ -1,0 +1,16 @@
+<h1>Comment</h1>
+<div class="comment_loop">
+<% @comments.each do |l| %>
+		<p>
+			<%= l.content %>
+		</p>
+<% end %>
+</div>
+<div class='comment_box'>
+	<%= form_for @comment do |f| %>
+		<%= f.hidden_field :post_id, value: "#{params[:id]}" %>
+		<%= f.label "Comment" %>
+		<%= f.text_area :content %>
+		<%= f.submit 'Submit' %>
+	<% end %>
+</div>

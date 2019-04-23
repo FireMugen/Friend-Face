@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.destroy_all
+u1 = User.create :email => 'esther@squishy.com', :name => 'Esther Greatbanks' , :password => 'chicken'
+u2 = User.create :email => 'max@squishy.com', :name => 'Max Reeves', :password => 'chicken'
+
+Post.destroy_all
+p1 = Post.create :content => "Hi!", :user_id => 1
+p2 = Post.create :content => "Hi!", :user_id => 2

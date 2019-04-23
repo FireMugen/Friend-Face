@@ -1,0 +1,15 @@
+<h1>
+	<%= @user.name %>
+</h1>
+<h2>Edit Profile</h2>
+<%= form_for @user do |f| %>
+	<%= f.label "Add a Profile Picture" %>
+	<%= f.url_field :image, :placeholder => "Insert URL" %>
+	<%= f.label "Change Email Address" %>
+	<%= f.email_field :email, :placeholder => "Insert Email"%>
+	<%= f.label :password, "Change Password"%>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation, "Confirm New Password" %>
+  <%= f.password_field :password_confirmation %>
+	<%= f.submit 'Submit' %>
+<% end %>

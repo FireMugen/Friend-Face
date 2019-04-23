@@ -1,0 +1,32 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+			<%= image_tag @user.image, :class => "profile-image" %>
+			<div class='post_box'>
+				<%= form_for @post do |f| %>
+					<%= f.label "Update Status" %>
+					<%= f.text_field :content %>
+					<%= f.submit 'Post!' %>
+				<% end %>
+			</div>
+    </section>
+  </aside>
+
+	<div class="col-md-8">
+		<h1 id="user-name-profile"><%= @user.name %></h1>
+	</div>
+
+  <div class="col-md-8">
+    <% if @user.posts %>
+			<ol class="microposts">
+				<% @posts.each do |l| %>
+					<li id="micropost-<%= l.id %>">
+						<%= image_tag l.user.image, :class => 'thumb' %>
+						<span class="user"><%= link_to l.user.name, l.user %></span>
+						<span class="content"><%= l.content %></span>
+					</li>
+				<% end %>
+			</ol>
+    <% end %>
+  </div>
+</div>
