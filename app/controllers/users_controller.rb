@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
 	before_action :correct_user, only: [:edit, :update]
 
+	def destroy
+	@user = User.find params[:id]
+	@user.destroy
+	redirect_to users_path
+	end
+
   def index
     @users = User.all
   end

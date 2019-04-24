@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-	root :to => 'users#index'              # Replace this with whatever you want your root_path to be.
-	 resources :users, :only => [:new, :create, :index, :show, :edit, :update]
+	root :to => 'users#index'              
+	 resources :users, :only => [:new, :create, :index, :show, :edit, :update, :destroy]
 	 resources :posts, :only => [:show, :create, :index]
 	 resources :comments, :only => [:create]
 	                                      # This path is where unauthorized users will be redirected_to.

@@ -8,9 +8,10 @@
 
 
 User.destroy_all
-u1 = User.create :email => 'esther@squishy.com', :name => 'Esther Greatbanks' , :password => 'chicken'
-u2 = User.create :email => 'max@squishy.com', :name => 'Max Reeves', :password => 'chicken'
+u1 = User.create :email => 'roy.trenneman@ri.com', :name => 'Roy Trenneman' , :password => 'chicken'
+u2 = User.create :email => 'maurice.moss@ri.com', :name => 'Maurice Moss', :password => 'chicken'
+u3 = User.create :email => 'jenbarber@ri.com', :name => 'Jen Barber', :password => 'chicken'
+u3 = User.create :email => 'richmond.avenal@ri.com', :name => 'Richmond Avenal', :password => 'chicken'
+u3 = User.create :email => 'douglas.reynholm@ri.com', :name => 'Douglas Reynholm', :password => 'chicken'
 
 Post.destroy_all
-p1 = Post.create :content => "Hi!", :user_id => 1
-p2 = Post.create :content => "Hi!", :user_id => 2

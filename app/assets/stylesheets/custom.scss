@@ -211,8 +211,12 @@ aside {
 
 /* forms */
 
+.delete {
+	color: red;
+}
+
 .post_box {
-	max-height: 10em;
+	max-height: 15em;
 	max-width: 25em;
 	margin-right: -20px auto;
 	padding-top: 0;
@@ -359,4 +363,9 @@ ul {
 .comment_box {
 	max-width: 15em;
 	margin: auto;
+}
+
+.edit-form {
+	max-width: 36em;
+	margin: 0 auto;
 }

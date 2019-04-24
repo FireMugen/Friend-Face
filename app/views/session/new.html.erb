@@ -2,6 +2,7 @@
 
 <%= flash[:error] %>
 
+<div class="edit-form">
 <%= form_tag login_path do %>
   <%= label_tag :email %>
   <%= email_field_tag :email %>
@@ -11,3 +12,4 @@
 
   <%= submit_tag "Sign in" %>
 <% end %>
+</div>

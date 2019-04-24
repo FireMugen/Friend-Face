@@ -1,10 +1,11 @@
 <h1>News Feed</h1>
-
 <% if @posts %>
 <ul>
 	<% @posts.all.each do |l| %>
 		<li class="home-posts">
+			<% if l.user.image? %>
 			<%= image_tag l.user.image, :class => 'home-thumb' %>
+			<% end %>
 			<span class="home-user"><%= link_to l.user.name, user_path(l.user.id) %></span>
 				<br/>
 				<span class="home-user-name"><%= l.content %></span>

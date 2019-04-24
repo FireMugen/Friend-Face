@@ -6,7 +6,10 @@
     <% end %>
   </ol>
 <% end %>
+<div class="edit-form">
 <%= form_for @user do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name, :required => true %>
   <%= f.label :email %>
   <%= f.email_field :email, :required => true %>
   <%= f.label :password %>
@@ -15,3 +18,4 @@
   <%= f.password_field :password_confirmation %>
   <%= f.submit "Sign Up" %>
 <% end %>
+</div>
