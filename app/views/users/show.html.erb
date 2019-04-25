@@ -2,12 +2,13 @@
   <aside class="col-md-4">
     <section class="user_info">
 			<%= cl_image_tag(@user.image, :class => "profile-image", :default_image => "Reynholmlogo_rc8igd.png") %>
+			<p class='bio-profile-page'><%= @user.bio %></p>
 			<div class='post_box'>
 				<% if @user.id == current_user.id %>
 					<%= form_for @post do |f| %>
 						<%= f.label "Update Status" %>
 						<%= f.text_area :content, :autofocus => true, :required => true %>
-						<%= f.submit 'Post!' %>
+						<%= f.submit 'Post!', :class => "sign-button"  %>
 					<% end %>
 				<% end %>
 			</div>
@@ -26,8 +27,8 @@
 							<span class="user"><%= link_to l.user.name, l.user %></span>
 							<span class="content"><%= l.content %></span>
 							<br/>
-							<% if l.comments != nil %>
-							<h4>Comments</h4>
+							<% if l.comments.count >= 1 %>
+								<h4>Comments</h4>
 								<% l.comments.each do |comment| %>
 									<%= cl_image_tag(comment.user.image, :class => 'thumb', :default_image => "Reynholmlogo_rc8igd.png") %>
 									<span class="user"><%= link_to comment.user.name, comment.user %></span>

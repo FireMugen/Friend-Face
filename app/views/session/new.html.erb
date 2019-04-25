@@ -1,4 +1,4 @@
-<h1>Sign In</h1>
+<h1>Log In</h1>
 
 <%= flash[:error] %>
 
@@ -10,6 +10,11 @@
   <%= label_tag :password %>
   <%= password_field_tag :password %>
 
-  <%= submit_tag "Sign in" %>
+  <%= submit_tag "Sign in", :class => "sign-button"  %>
+	<p>
+		Don't have an account?
+		<%= link_to " Sign Up", new_user_path %>
+	</p>
 <% end %>
+
 </div>

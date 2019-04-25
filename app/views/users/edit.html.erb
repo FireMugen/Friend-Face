@@ -1,11 +1,13 @@
-<h1>
+<h1 class="edit-profile-name">
 	<%= @user.name %>
 </h1>
 <h2>Edit Profile</h2>
 <div class="edit-form">
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
 	<%= f.label "Add a Profile Picture" %>
-	<%= f.cl_image_upload :image %>
+	<%= f.cl_image_upload :image, :class => "sign-button" %>
+	<%= f.label "Tell everyone about yourself (200 characters)" %>
+	<%= f.text_area :bio, :maxlength => 200 %>
 	<%= f.label "Change Your Name" %>
 	<%= f.text_field :name %>
 	<%= f.label "Change Email Address" %>
@@ -14,7 +16,8 @@
   <%= f.password_field :password %>
   <%= f.label :password_confirmation, "Confirm New Password" %>
   <%= f.password_field :password_confirmation %>
-	<%= f.submit 'Submit' %>
+	<%= f.submit 'Submit', :class => "sign-button" %>
+	<br/>
 	<%= link_to 'Delete Account', user_path(@user.id), :method => 'delete', :class => "delete", :data => {:confirm => 'Once you delete your account your data will be gone forever, are you sure?'} %>
 </div>
 <% end %>

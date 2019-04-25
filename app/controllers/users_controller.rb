@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+		redirect_to login_path unless current_user != nil
   end
 
   def new
@@ -54,7 +55,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :file)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :file, :bio)
   end
 
 	def correct_user

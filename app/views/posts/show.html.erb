@@ -24,6 +24,6 @@
 		<%= f.hidden_field :user_id, value: "#{@current_user.id}" %>
 		<%= f.label "Comment" %>
 		<%= f.text_area :content %>
-		<%= f.submit 'Submit' %>
+		<%= f.submit 'Submit', :class => "sign-button" %>
 	<% end %>
 </div>
