@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :correct_user, only: [:edit, :update]
+	before_action :correct_user, only: [:edit, :update, :delete]
 
 	def destroy
 	@user = User.find params[:id]
@@ -22,7 +22,12 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find params[:id]
-		@user.update user_params
+		if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      @user.image = req["public_id"]
+    end
+		@user.update_attributes(user_params)
+		@user.save
 		redirect_to @user
 	end
 
@@ -34,18 +39,22 @@ class UsersController < ApplicationController
     else
       render :new
     end
+		if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      @user.image = req["public_id"]
+		end
   end
 
 	def show
 		@user = User.find params[:id]
-		@post = @user.posts.new
 		@posts = @user.posts
+		@post = @user.posts.new
 		render :show
 	end
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :image)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :file)
   end
 
 	def correct_user

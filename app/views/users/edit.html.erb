@@ -3,9 +3,9 @@
 </h1>
 <h2>Edit Profile</h2>
 <div class="edit-form">
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
 	<%= f.label "Add a Profile Picture" %>
-	<%= f.url_field :image, :placeholder => "Insert URL" %>
+	<%= f.cl_image_upload :image %>
 	<%= f.label "Change Your Name" %>
 	<%= f.text_field :name %>
 	<%= f.label "Change Email Address" %>

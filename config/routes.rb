@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-	root :to => 'users#index'              
+	root :to => 'users#index'
 	 resources :users, :only => [:new, :create, :index, :show, :edit, :update, :destroy]
-	 resources :posts, :only => [:show, :create, :index]
-	 resources :comments, :only => [:create]
+	 resources :posts, :only => [:show, :create, :index, :destroy]
+	 resources :comments, :only => [:create, :show, :destroy]
 	                                      # This path is where unauthorized users will be redirected_to.
 	get '/login' => 'session#new'         # This will be our sign-in page.
 	post '/login' => 'session#create'     # This will be the path to which the sign-in form is posted

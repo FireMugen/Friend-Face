@@ -1,14 +1,27 @@
-<h1>Comment</h1>
+<h1><%= link_to @post.user.name, user_path %></h1>
 <div class="comment_loop">
+	<%= @post.content %>
+	<h3 class="comments">Comments</h3>
+<div class="comments-box">
 <% @comments.each do |l| %>
+	<% if l.id != nil %>
 		<p>
-			<%= l.content %>
+			<%= cl_image_tag(l.post.user.image, :class => 'thumb', :default_image => "Reynholmlogo_rc8igd.png") %>
+			<%= link_to l.user.name, user_path %>
+				<br/>
+			<span class="content"><%= l.content %></span>
+			<% if l.user_id == current_user.id || @post.user_id == current_user.id %>
+				<%= link_to "Delete", comment_path(l.id), :method => 'delete' %>
+			<% end %>
 		</p>
+		<% end %>
 <% end %>
+</div>
 </div>
 <div class='comment_box'>
 	<%= form_for @comment do |f| %>
 		<%= f.hidden_field :post_id, value: "#{params[:id]}" %>
+		<%= f.hidden_field :user_id, value: "#{@current_user.id}" %>
 		<%= f.label "Comment" %>
 		<%= f.text_area :content %>
 		<%= f.submit 'Submit' %>

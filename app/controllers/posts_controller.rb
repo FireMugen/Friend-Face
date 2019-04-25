@@ -8,12 +8,18 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find params[:id]
 		@comment = @post.comments.new
-		@comments = Comment.all
+		@comments = @post.comments
+	end
+
+	def destroy
+		@post = Post.find params[:id]
+		@post.destroy
+		redirect_to posts_path
 	end
 
 	def index
 		@posts = Post.all
-		@users = User.find_by params[:id]
+		@user = User.find_by params[:id]
 	end
 
 	private

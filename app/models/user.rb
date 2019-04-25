@@ -15,7 +15,7 @@
 class User < ApplicationRecord
   has_secure_password
 	has_many :posts
-	has_many :comments, :through => :posts
+	has_many :comments
   # Validations -- see the Rails Guide
   validates :email, :presence => true, :uniqueness => true
 end
