@@ -6,7 +6,7 @@
 <% @comments.each do |l| %>
 	<% if l.id != nil %>
 		<p>
-			<%= cl_image_tag(l.post.user.image, :class => 'thumb', :default_image => "Reynholmlogo_rc8igd.png") %>
+			<%= cl_image_tag(l.user.image, :class => 'thumb', :default_image => "Reynholmlogo_rc8igd.png") %>
 			<%= link_to l.user.name, user_path %>
 				<br/>
 			<span class="content"><%= l.content %></span>

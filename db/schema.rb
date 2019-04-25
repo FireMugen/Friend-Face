@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_04_25_094031) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image", default: "Reynholmlogo.png"
+    t.string "image"
   end
 
 end
