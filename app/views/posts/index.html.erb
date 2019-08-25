@@ -1,15 +1,20 @@
 <h1>News Feed</h1>
+  <% if flash[:notice] %>
+    <div class="alert alert-info" role="alert""><%= flash[:notice] %></div>
+  <% end %>
 <% if @posts.count != 0 %>
 	<ul>
-	<% @posts.each do |l| %>
+	<% @posts.each do |post| %>
 		<li class="home-posts">
-			<%= cl_image_tag(l.user.image, :class => 'home-thumb', :default_image => "Reynholmlogo_rc8igd.png") %>
-			<span class="home-user"><%= link_to l.user.name, user_path(l.user.id) %></span>
+			<%= cl_image_tag(post.user.image, :class => 'home-thumb', :default_image => "Reynholmlogo_rc8igd.png") %>
+			<span class="home-user"><%= link_to post.user.name, user_path(post.user.id) %></span>
 				<br/>
-				<span class="home-user-name"><%= l.content %></span>
-				<%= link_to "Comment", post_path(l.id) %>
-				<% if l.user_id == current_user.id %>
-					<%= link_to "Delete", post_path(l.id), :method => 'delete' %>
+				<span class="home-user-name"><%= post.content %></span>
+					<%= link_to "Comment", post_path(post.id) %>
+					  <%= button_to 'Like', likes_path(post_id: post.id), method: :post %>
+					<p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+				<% if post.user_id == current_user.id %>
+					<%= link_to "Delete", post_path(post.id), :method => 'delete' %>
 				<% end %>
 		</li>
 	<% end %>
