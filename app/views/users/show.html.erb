@@ -27,12 +27,16 @@
 							<span class="user"><%= link_to l.user.name, l.user %></span>
 							<span class="content"><%= l.content %></span>
 							<br/>
+							<%= link_to "Comment", post_path(l.id) %>
 							<% if l.comments.count >= 1 %>
 								<h4>Comments</h4>
 								<% l.comments.each do |comment| %>
 									<%= cl_image_tag(comment.user.image, :class => 'thumb', :default_image => "Reynholmlogo_rc8igd.png") %>
 									<span class="user"><%= link_to comment.user.name, comment.user %></span>
 									<span class="content"><%= comment.content %></span>
+									<% if comment.user_id == current_user.id %>
+										<%= link_to "Delete", comment_path(comment.user.id), :method => 'delete' %>
+									<% end %>
 								<% end %>
 							<% end %>
 						</li>
