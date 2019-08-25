@@ -377,6 +377,7 @@ ul {
 }
 
 .sign-button {
+  display: inline;
 	max-width: 110px;
 	background-color: #2b7224;
 	color: white;
@@ -398,4 +399,16 @@ ul {
 .bio-profile-page {
 	max-width: 300px;
 	max-height: 400px;
+}
+
+.home-posts {
+  form {
+    display: inline;
+  }
+  #text {
+    color: #337ab7;
+  }
+  .button_to {
+    max-width: 100px;
+  }
 }

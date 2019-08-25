@@ -11,8 +11,8 @@
 				<br/>
 				<span class="home-user-name"><%= post.content %></span>
 					<%= link_to "Comment", post_path(post.id) %>
-					  <%= button_to 'Like', likes_path(post_id: post.id),:class => "sign-button", method: :post %>
-					<p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+					  <p><%= button_to 'Like', likes_path(post_id: post.id),:class => "sign-button", method: :post %>
+						 <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 				<% if post.user_id == current_user.id %>
 					<%= link_to "Delete", post_path(post.id), :method => 'delete' %>
 				<% end %>
