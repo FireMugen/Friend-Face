@@ -10,12 +10,14 @@
 			<span class="home-user"><%= link_to post.user.name, user_path(post.user.id) %></span>
 				<br/>
 				<span class="home-user-name"><%= post.content %></span>
+				<br/>
 					<%= link_to "Comment", post_path(post.id) %>
 						<% if post.user_id == current_user.id %>
-							<%= link_to "Delete", post_path(post.id), :method => 'delete' %>
+							<%= link_to "Delete", post_path(post.id), :class => "delete", :method => 'delete' %>
 						<% end %>
 					<p><%= button_to 'Like', likes_path(post_id: post.id),:class => "sign-button", method: :post %>
 					   <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+					   <hr/>
 		</li>
 	<% end %>
 	</ul>
